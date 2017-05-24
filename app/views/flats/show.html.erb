@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @flat.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @flat.address %>
+</p>
+
+<%= link_to 'Edit', edit_flat_path(@flat) %> |
+<%= link_to 'Back', flats_path %>
+
+
+<%= content_for(:after_js) do %>
+  <script>
+    $(document).ready(function() {
+      var coord = <%= raw @flat_coordinates.to_json %>;
+
+      alert("Hey you are seing <%= j @flat.name %> lat: "+coord.lat);
+    });
+  </script>
+<% end %>

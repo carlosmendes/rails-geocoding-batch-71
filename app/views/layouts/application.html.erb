@@ -11,7 +11,10 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
+    <!-- here is injected all the code from the views that DO NOT specify content_for -->
     <%= yield %>
     <%= javascript_include_tag 'application' %>
+    <!-- here is going to be injected the code that is inside of content_for(:after_js) -->
+    <%= yield(:after_js) %>
   </body>
 </html>
